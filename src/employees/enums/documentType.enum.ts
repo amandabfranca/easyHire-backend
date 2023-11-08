@@ -1,0 +1,6 @@
+export enum EmployeeDocumentType {
+  CONTRACT = "CONTRACT",
+  CPF_RG = "CPF-RG",
+  PROOF_ADDRESS = "PROOF-ADDRESS",
+  SCHOOL_CURRICULUM = "SCHOOL-CURRICULUM",
+}
