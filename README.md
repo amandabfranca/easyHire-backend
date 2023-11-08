@@ -39,7 +39,7 @@ npm install
 
 1. Create a PostgreSQL database for the application.
 
-2. Update the database connection configuration in the `ormconfig.js` file to match your PostgreSQL settings.
+2. Update the database connection configuration in the `database.config.ts` file to match your PostgreSQL settings.
 
 ### Running the Application
 
