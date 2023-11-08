@@ -1,6 +1,6 @@
 ---
 
-# Employee Management API
+# Easy Hire API
 
 This is a RESTful API for managing employee data. It allows you to register and search for employees based on their metadata and document types.
 
