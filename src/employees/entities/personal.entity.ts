@@ -1,7 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 import { EmployeeEntity } from './employee.entity';
 import { DocumentEntity } from './document.entity';
-import { validate } from 'cpf-check'; // Importe a função de validação de CPF
 
 @Entity('personal')
 export class PersonalEntity {

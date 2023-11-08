@@ -9,7 +9,6 @@ import { EmployeeEntity } from '../entities/employee.entity';
 import { PersonalEntity } from '../entities/personal.entity';
 import { DocumentEntity } from '../entities/document.entity';
 import { EmployeeDocumentType } from '../enums/documentType.enum';
-import { error } from 'console';
 
 
 @Injectable()
@@ -29,7 +28,6 @@ export class EmployeesService {
     const employeeExists = await this.isEmployeeExists(employeeDTO.cpf);
     if (employeeExists) {
       throw new HttpException('Employee with the same CPF already exists', HttpStatus.BAD_REQUEST);
-      //throw new Error('Employee with the same CPF already exists');
     } else {
 
       const newPersonalData = this.personalDataRepository.create({
@@ -46,7 +44,7 @@ export class EmployeesService {
       });
       await this.personalDataRepository.save(newPersonalData);
 
-      //Criar e salvar os documentos
+      //Criando e salvando os documentos
       this.createAndSaveDocuments(employeeDTO, newPersonalData);
 
       // Criando um novo funcionário e associando os dados pessoais e o documento
@@ -55,7 +53,7 @@ export class EmployeesService {
         role: "GERENTE"
       });
 
-      // Salve o funcionário
+      // Salvando o funcionário
       return this.employeeRepository.save(employee);
     }
   }
@@ -89,8 +87,6 @@ export class EmployeesService {
     await this.documentRepository.save(newDocumentCpfRg);
     await this.documentRepository.save(newProofOfAddress);
     await this.documentRepository.save(newDocumentSchoolCurriculum);
-
-    //await this.documentRepository.save([newEmploymentContract, newDocumentCpfRg, newProofOfAddress, newDocumentSchoolCurriculum]);
   }
 
   async isEmployeeExists(cpf: string): Promise<PersonalEntity> {
@@ -100,10 +96,6 @@ export class EmployeesService {
     return existingEmployee; // Retorna true se o funcionário existe, caso contrário, retorna false.
   }
 
-
-  /* async findAll(): Promise<Employee[]> {
-    return this.employeeRepository.find();
-  } */
 
   async findByCpf(cpf: string): Promise<PersonalEntity | undefined> {
     return await this.personalDataRepository.findOne({

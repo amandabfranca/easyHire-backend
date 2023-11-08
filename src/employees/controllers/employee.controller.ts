@@ -1,15 +1,11 @@
-// src/employees/employees.controller.ts
 import {
   Controller,
   Post,
   Get,
   Param,
   Body,
-  HttpException,
-  HttpStatus,
 } from '@nestjs/common';
 import { EmployeeDTO } from '../dto/employee.dto';
-import { EmployeeEntity } from '../entities/employee.entity';
 import { EmployeesService } from '../service/employees.service';
 import { DocumentDTO } from '../dto/document.dto';
 import { PersonalEntity } from '../entities/personal.entity';
@@ -26,12 +22,7 @@ export class EmployeesController {
       } catch (error) {
           return { message: error.message }; 
       }
-  }
-
-  /* @Get()
-  async findAll(): Promise<EmployeeEntity[]> {
-    return this.employeesService.findAll();
-  } */
+  }  
 
   @Get(':cpf')
   async findByCpf(@Param('cpf') cpf: string): Promise<PersonalEntity | undefined> {

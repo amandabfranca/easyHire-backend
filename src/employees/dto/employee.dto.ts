@@ -1,4 +1,3 @@
-// src/employees/dto/employee.dto.ts
 import { IsString, IsDate, IsEmail, IsPhoneNumber, IsObject } from 'class-validator';
 import { AddressDTO } from './address.dto';
 
